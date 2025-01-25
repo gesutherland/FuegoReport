@@ -3,27 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources - Fuego Report</title>
-    <link rel="stylesheet" href="style.css">
+    <title>US States with Immigration Support Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            width: 90%;
+            max-width: 800px;
+        }
+        .state-container {
+            position: relative;
+        }
+        .state-button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #e3f2fd;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .state-button:hover {
+            background-color: #90caf9;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 1000;
+        }
+        .dropdown a {
+            display: block;
+            text-decoration: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            color: #333;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+    <script>
+        function toggleDropdown(state) {
+            const dropdown = document.getElementById(`${state}-dropdown`);
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <h1>Resources</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="resources.html">Resources</a>
-            <a href="contributions.html">Contributions</a>
-        </nav>
-    </header>
-    <main>
-        <ul>
-            <li><a href="https://example.com/resource1" target="_blank">Resource 1</a></li>
-            <li><a href="https://example.com/resource2" target="_blank">Resource 2</a></li>
-            <li><a href="https://example.com/resource3" target="_blank">Resource 3</a></li>
-        </ul>
-    </main>
-    <footer>
-        <p>&copy; 2025 Fuego Report</p>
-    </footer>
+    <div class="grid">
+        <!-- State Buttons with Immigration Support Links -->
+        <div class="state-container">
+            <button class="state-button" onclick="toggleDropdown('Alabama')">Alabama</button>
+            <div id="Alabama-dropdown" class="dropdown">
+                <a href="https://www.immigrantjustice.org/">Immigrant Justice Center</a>
+                <a href="https://www.alimmigrationlaw.com/">Alabama Immigration Lawyers</a>
+                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
+            </div>
+        </div>
+        <div class="state-container">
+            <button class="state-button" onclick="toggleDropdown('Alaska')">Alaska</button>
+            <div id="Alaska-dropdown" class="dropdown">
+                <a href="https://www.acluak.org/">ACLU of Alaska</a>
+                <a href="https://justicecenter.uaf.edu/">Justice Center Alaska</a>
+                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
+            </div>
+        </div>
+        <div class="state-container">
+            <button class="state-button" onclick="toggleDropdown('Arizona')">Arizona</button>
+            <div id="Arizona-dropdown" class="dropdown">
+                <a href="https://www.firrp.org/">Florence Immigrant & Refugee Rights Project</a>
+                <a href="https://azjusticeforall.org/">Justice For All Arizona</a>
+                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
+            </div>
+        </div>
+        <div class="state-container">
+            <button class="state-button" onclick="toggleDropdown('Arkansas')">Arkansas</button>
+            <div id="Arkansas-dropdown" class="dropdown">
+                <a href="https://arkansasimmigrationhelp.org/">Arkansas Immigration Help</a>
+                <a href="https://www.aclu.org/">ACLU</a>
+                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
+            </div>
+        </div>
+        <div class="state-container">
+            <button class="state-button" onclick="toggleDropdown('California')">California</button>
+            <div id="California-dropdown" class="dropdown">
+                <a href="https://www.ilrc.org/">Immigrant Legal Resource Center</a>
+                <a href="https://www.chirla.org/">CHIRLA</a>
+                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
+            </div>
+        </div>
+        <div class="state-container">
+            <button class="state-button" onclick="toggleDropdown('Colorado')">Colorado</button>
+            <div id="Colorado-dropdown" class="dropdown">
+                <a href="https://www.rmirjc.org/">Rocky Mountain Immigrant Advocacy Network</a>
+                <a href="https://coloradoimmigrant.org/">Colorado Immigrant Rights Coalition</a>
+                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
+            </div>
+        </div>
+        <div class="state-container">
+            <button class="state-button" onclick="toggleDropdown('Connecticut')">Connecticut</button>
+            <div id="Connecticut-dropdown" class="dropdown">
+                <a href="https://www.ctjustice.org/">Connecticut Justice for Immigrants</a>
+                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
+                <a href="https://www.aclu.org/">ACLU</a>
+            </div>
+        </div>
+        <!-- Add similar structure for all remaining states in alphabetical order -->
+    </div>
 </body>
 </html>
