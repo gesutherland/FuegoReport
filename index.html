@@ -9,14 +9,35 @@
     <script>
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: -34.397, lng: 150.644 },
-                zoom: 8,
+                center: { lat: 38.9066, lng: -77.0736 },
+                zoom: 15,
             });
             var marker = new google.maps.Marker({
-                position: { lat: -34.397, lng: 150.644 },
+                position: { lat: 38.9066, lng: -77.0736 },
                 map: map,
                 draggable: true,
             });
+
+            google.maps.event.addListener(map, 'click', function(event) {
+                placeMarker(event.latLng);
+            });
+            function placeMarker(location) {
+                marker.setPosition(location);
+                map.setCenter(location);
+
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ 'location': location }, function(results, status) {
+                    if (status === 'OK') {
+                        if (results[0]) {
+                            document.getElementById('location').value = results[0].formatted_address;
+                        } else {
+                            window.alert('No results found');
+                        }
+                    } else {
+                        window.alert('Geocoder failed due to: ' + status);
+                    }
+                });
+            }
         }
     </script>
 </head>
