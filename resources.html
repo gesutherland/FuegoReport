@@ -3,131 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>US States with Immigration Support Links</title>
+    <title>Immigration Support by Metro Area</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f9f9f9;
-        }
         .grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            width: 90%;
-            max-width: 800px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
         }
-        .state-container {
-            position: relative;
+        .metro-area-container {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
         }
-        .state-button {
+        .metro-area-button {
+            width: 100%;
             padding: 10px;
             font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #e3f2fd;
             cursor: pointer;
-            transition: background-color 0.3s;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
         }
-        .state-button:hover {
-            background-color: #90caf9;
+        .metro-area-button:hover {
+            background-color: #0056b3;
         }
         .dropdown {
             display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            z-index: 1000;
+            margin-top: 10px;
         }
         .dropdown a {
             display: block;
             text-decoration: none;
-            padding: 5px 10px;
-            font-size: 14px;
-            color: #333;
-            border-radius: 3px;
-            transition: background-color 0.3s;
+            color: #007BFF;
+            margin: 5px 0;
         }
         .dropdown a:hover {
-            background-color: #f1f1f1;
+            text-decoration: underline;
         }
     </style>
     <script>
-        function toggleDropdown(state) {
-            const dropdown = document.getElementById(`${state}-dropdown`);
+        function toggleDropdown(id) {
+            const dropdown = document.getElementById(`${id}-dropdown`);
             dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         }
     </script>
 </head>
 <body>
     <div class="grid">
-        <!-- State Buttons with Immigration Support Links -->
-        <div class="state-container">
-            <button class="state-button" onclick="toggleDropdown('Alabama')">Alabama</button>
-            <div id="Alabama-dropdown" class="dropdown">
-                <a href="https://www.immigrantjustice.org/">Immigrant Justice Center</a>
-                <a href="https://www.alimmigrationlaw.com/">Alabama Immigration Lawyers</a>
-                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
+        <!-- Metro Area Buttons with Immigration Support Links -->
+        <div class="metro-area-container">
+            <button class="metro-area-button" onclick="toggleDropdown('Dallas')">Dallas Metro Area</button>
+            <div id="Dallas-dropdown" class="dropdown">
+                <a href="https://www.raicestexas.org/">RAICES Texas</a>
+                <a href="https://www.catholiccharitiesdallas.org/">Catholic Charities of Dallas</a>
+                <a href="https://www.rescue.org/united-states/dallas-tx">International Rescue Committee in Dallas</a>
             </div>
         </div>
-        <div class="state-container">
-            <button class="state-button" onclick="toggleDropdown('Alaska')">Alaska</button>
-            <div id="Alaska-dropdown" class="dropdown">
-                <a href="https://www.acluak.org/">ACLU of Alaska</a>
-                <a href="https://justicecenter.uaf.edu/">Justice Center Alaska</a>
-                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
+        <div class="metro-area-container">
+            <button class="metro-area-button" onclick="toggleDropdown('LosAngeles')">Los Angeles Metro Area</button>
+            <div id="LosAngeles-dropdown" class="dropdown">
+                <a href="https://www.chirla.org/">Coalition for Humane Immigrant Rights (CHIRLA)</a>
+                <a href="https://www.rescue.org/">International Rescue Committee</a>
+                <a href="https://refugeerights.org/">International Refugee Assistance Project</a>
             </div>
         </div>
-        <div class="state-container">
-            <button class="state-button" onclick="toggleDropdown('Arizona')">Arizona</button>
-            <div id="Arizona-dropdown" class="dropdown">
+        <div class="metro-area-container">
+            <button class="metro-area-button" onclick="toggleDropdown('Houston')">Houston Metro Area</button>
+            <div id="Houston-dropdown" class="dropdown">
+                <a href="https://www.houstonimmigration.org/">Houston Immigration Legal Services Collaborative</a>
+                <a href="https://www.raicestexas.org/">RAICES Texas</a>
+                <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
+            </div>
+        </div>
+        <div class="metro-area-container">
+            <button class="metro-area-button" onclick="toggleDropdown('Atlanta')">Atlanta Metro Area</button>
+            <div id="Atlanta-dropdown" class="dropdown">
+                <a href="https://www.gainlegal.org/">Georgia Asylum and Immigration Network (GAIN)</a>
+                <a href="https://www.gcadv.org/">Georgia Coalition Against Domestic Violence</a>
+                <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
+            </div>
+        </div>
+        <div class="metro-area-container">
+            <button class="metro-area-button" onclick="toggleDropdown('Phoenix')">Phoenix Metro Area</button>
+            <div id="Phoenix-dropdown" class="dropdown">
                 <a href="https://www.firrp.org/">Florence Immigrant & Refugee Rights Project</a>
-                <a href="https://azjusticeforall.org/">Justice For All Arizona</a>
-                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
+                <a href="https://www.azjusticeforall.org/">Justice For All Arizona</a>
+                <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
             </div>
         </div>
-        <div class="state-container">
-            <button class="state-button" onclick="toggleDropdown('Arkansas')">Arkansas</button>
-            <div id="Arkansas-dropdown" class="dropdown">
-                <a href="https://arkansasimmigrationhelp.org/">Arkansas Immigration Help</a>
-                <a href="https://www.aclu.org/">ACLU</a>
-                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
+        <div class="metro-area-container">
+            <button class="metro-area-button" onclick="toggleDropdown('Miami')">Miami Metro Area</button>
+            <div id="Miami-dropdown" class="dropdown">
+                <a href="https://catholiclegalservices.org/">Catholic Legal Services Miami</a>
+                <a href="https://www.floridaimmigrant.org/">Florida Immigrant Coalition</a>
+                <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
             </div>
         </div>
-        <div class="state-container">
-            <button class="state-button" onclick="toggleDropdown('California')">California</button>
-            <div id="California-dropdown" class="dropdown">
-                <a href="https://www.ilrc.org/">Immigrant Legal Resource Center</a>
-                <a href="https://www.chirla.org/">CHIRLA</a>
-                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
-            </div>
-        </div>
-        <div class="state-container">
-            <button class="state-button" onclick="toggleDropdown('Colorado')">Colorado</button>
-            <div id="Colorado-dropdown" class="dropdown">
-                <a href="https://www.rmirjc.org/">Rocky Mountain Immigrant Advocacy Network</a>
-                <a href="https://coloradoimmigrant.org/">Colorado Immigrant Rights Coalition</a>
-                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
-            </div>
-        </div>
-        <div class="state-container">
-            <button class="state-button" onclick="toggleDropdown('Connecticut')">Connecticut</button>
-            <div id="Connecticut-dropdown" class="dropdown">
-                <a href="https://www.ctjustice.org/">Connecticut Justice for Immigrants</a>
-                <a href="https://cliniclegal.org/">National Immigration Legal Services</a>
-                <a href="https://www.aclu.org/">ACLU</a>
-            </div>
-        </div>
-        <!-- Add similar structure for all remaining states in alphabetical order -->
     </div>
 </body>
 </html>
+
