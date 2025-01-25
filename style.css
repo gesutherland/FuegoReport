@@ -16,10 +16,10 @@ body {
 
 /* Header */
 header {
-    background-color: #094db4;
+    background-color: #eb661a;
     color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 4px 0;
     border-bottom: 4px solid #f89634;
 }
 
@@ -31,6 +31,10 @@ header h1 {
 header p {
     font-size: 1rem;
     margin-top: 5px;
+}
+.logo {
+    width: 325px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
 /* Main Layout */
@@ -108,7 +112,7 @@ button {
 }
 
 button:hover {
-    background-color: #d9782b;
+    background-color: #eb661a;
 }
 
 /* Footer */
