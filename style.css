@@ -1,3 +1,54 @@
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: center; /* Centers the navigation links */
+    align-items: center;
+    background-color: #094db4; /* Updated background color */
+    padding: 10px 20px; /* Add some padding */
+    position: sticky; /* Makes the navbar stick to the top on scroll */
+    top: 0;
+    z-index: 1000; /* Ensures it's above other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* Adds space between links */
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: #ffffff; /* White text for links */
+    text-decoration: none; /* Removes underline */
+    font-size: 1rem;
+    font-weight: bold; /* Boldens the text */
+    padding: 10px 15px;
+    border-radius: 4px; /* Rounded corners for links */
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.navbar ul li a:hover {
+    background-color: #f89634; /* Highlight background on hover */
+    color: #094db4; /* Changes text color on hover */
+}
+
+/* Responsive Design for Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack links vertically */
+    }
+    .navbar ul {
+        flex-direction: column; /* Stack links vertically */
+        gap: 15px;
+    }
+}
+
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
@@ -17,8 +68,6 @@ body {
 /* Header */
 header {
     background-color: #eb661a;
-    justify-content: space-between;
-    align-items: center;
     color: #fff;
     text-align: center;
     padding: 4px 0;
@@ -39,36 +88,6 @@ header p {
     height: auto; /* Maintain aspect ratio */
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-    margin-right: auto;
-}
-
-.navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-}
-
-.navbar ul li {
-    display: inline;
-}
-
-.navbar ul li a {
-    color: #0f245b;
-    text-decoration: bold;
-    font-size: 1rem;
-    padding: 10px 15px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.navbar ul li a:hover {
-    background-color: #f89634;
-}
 /* Main Layout */
 main {
     padding: 40px 0;
