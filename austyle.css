@@ -1,0 +1,269 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+h2 {
+    margin-top: 25px;
+    text-align: center;
+    color:#0f245b;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #eb661a;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding: 4px 0;
+    border-bottom: 4px solid #f89634;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1rem;
+    margin-top: 5px;
+}
+.logo {
+    width: 325px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: #0f245b;
+    text-decoration: bold;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: #f89634;
+}
+/* Main Layout */
+main {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+section {
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    text-align: left;
+}
+
+section h2 {
+    color: #0f245b;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 10px;
+}
+
+section p, section ul {
+    margin: 10px 0;
+    text-align: center;
+}
+
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section ul li {
+    background-color: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+section ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+section ul li a:hover {
+    text-decoration: underline;
+}
+/* Map */
+#map {
+    flex: 1;
+    height: auto;
+    min-width: 400px;
+    height: 500px; /* Matches form height */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Report Form */
+#report {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#report h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #094db4;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, textarea, button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    background-color: #f89634;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #eb661a;
+}
+
+/* Footer */
+footer {
+    background-color: #eb661a;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+
+
+/* lang */
+
+
+#language-selector {
+    position: fixed;
+    top: 50%;
+    right: -250px; /* Initially hidden */
+    transform: translateY(-50%);
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px 0 0 8px;
+    transition: right 0.3s ease;
+}
+
+#language-selector:hover {
+    right: 0; /* Slide out on hover */
+}
+
+#tab {
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #094db4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+}
+
+#tab img {
+    width: 24px;
+    height: 24px;
+}
+
+#panel {
+    padding: 20px;
+    text-align: center;
+}
+
+#panel h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+#panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+#panel li {
+    margin: 10px 0;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
