@@ -1,49 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Immigration Support by Metro Area</title>
-    <style>
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        .metro-area-container {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-        .metro-area-button {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            background-color: #007BFF;
-            color: #fff;
-            border-radius: 5px;
-        }
-        .metro-area-button:hover {
-            background-color: #0056b3;
-        }
-        .dropdown {
-            display: none;
-            margin-top: 10px;
-        }
-        .dropdown a {
-            display: block;
-            text-decoration: none;
-            color: #007BFF;
-            margin: 5px 0;
-        }
-        .dropdown a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="rstyles.css">
     <script>
         function toggleDropdown(id) {
             const dropdown = document.getElementById(`${id}-dropdown`);
@@ -52,80 +14,97 @@
     </script>
 </head>
 <body>
-    <div class="grid">
-        <!-- Metro Area Buttons with Immigration Support Links -->
-        <div class="metro-area-container">
-            <button class="metro-area-button" onclick="toggleDropdown('Dallas')">Dallas Metro Area</button>
-            <div id="Dallas-dropdown" class="dropdown">
-                <a href="https://www.raicestexas.org/">RAICES Texas</a>
-                <a href="https://www.catholiccharitiesdallas.org/">Catholic Charities of Dallas</a>
-                <a href="https://www.rescue.org/united-states/dallas-tx">International Rescue Committee in Dallas</a>
+    <header>
+        <img src="fuego banner 3.png" alt="Fuego Report Logo" class="logo" />
+        <nav class= "navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contributions.html">About</a></li>
+                <li><a href="resources.html">Resources</a></li>
+            </ul>     
+    </header>
+    <main>
+    <body>
+        <div class="grid">
+            <!-- Metro Area Buttons with Immigration Support Links -->
+            <div class="metro-area-container">
+                <button class="metro-area-button" onclick="toggleDropdown('Dallas')">Dallas Metro Area</button>
+                <div id="Dallas-dropdown" class="dropdown">
+                    <a href="https://www.raicestexas.org/">RAICES Texas</a>
+                    <a href="https://www.catholiccharitiesdallas.org/">Catholic Charities of Dallas</a>
+                    <a href="https://www.rescue.org/united-states/dallas-tx">International Rescue Committee in Dallas</a>
+                </div>
+            </div>
+            <div class="metro-area-container">
+                <button class="metro-area-button" onclick="toggleDropdown('Chicago')">Chicago Metro Area</button>
+                <div id="Chicago-dropdown" class="dropdown">
+                    <a href="https://immigrantjustice.org/">National Immigrant Justice Center</a>
+                    <a href="https://www.reshicago.org/">RefugeeOne Chicago</a>
+                    <a href="https://www.icirr.org/">Illinois Coalition for Immigrant and Refugee Rights</a>
+                </div>
+            </div>
+            <div class="metro-area-container">
+                <button class="metro-area-button" onclick="toggleDropdown('NewYork')">New York Metro Area</button>
+                <div id="NewYork-dropdown" class="dropdown">
+                    <a href="https://www.make-the-road.org/">Make the Road New York</a>
+                    <a href="https://www.thenyic.org/">New York Immigration Coalition</a>
+                    <a href="https://www.immigrantdefenseproject.org/">Immigrant Defense Project</a>
+                </div>
+            </div>
+            <div class="metro-area-container">
+                <button class="metro-area-button" onclick="toggleDropdown('Seattle')">Seattle Metro Area</button>
+                <div id="Seattle-dropdown" class="dropdown">
+                    <a href="https://www.nwirp.org/">Northwest Immigrant Rights Project</a>
+                    <a href="https://seattle.gov/iandraffairs">Seattle Office of Immigrant and Refugee Affairs</a>
+                    <a href="https://refugeesnw.org/">Refugees Northwest</a>
+                </div>
+            </div>
+            <div class="metro-area-container">
+                <button class="metro-area-button" onclick="toggleDropdown('LosAngeles')">Los Angeles Metro Area</button>
+                <div id="LosAngeles-dropdown" class="dropdown">
+                    <a href="https://www.chirla.org/">Coalition for Humane Immigrant Rights (CHIRLA)</a>
+                    <a href="https://www.rescue.org/">International Rescue Committee</a>
+                    <a href="https://refugeerights.org/">International Refugee Assistance Project</a>
+                </div>
+            </div>
+            <div class="metro-area-container">
+                <button class="metro-area-button" onclick="toggleDropdown('Houston')">Houston Metro Area</button>
+                <div id="Houston-dropdown" class="dropdown">
+                    <a href="https://www.houstonimmigration.org/">Houston Immigration Legal Services Collaborative</a>
+                    <a href="https://www.raicestexas.org/">RAICES Texas</a>
+                    <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
+                </div>
+            </div>
+            <div class="metro-area-container">
+                <button class="metro-area-button" onclick="toggleDropdown('Atlanta')">Atlanta Metro Area</button>
+                <div id="Atlanta-dropdown" class="dropdown">
+                    <a href="https://www.gainlegal.org/">Georgia Asylum and Immigration Network (GAIN)</a>
+                    <a href="https://www.gcadv.org/">Georgia Coalition Against Domestic Violence</a>
+                    <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
+                </div>
+            </div>
+            <div class="metro-area-container">
+                <button class="metro-area-button" onclick="toggleDropdown('Phoenix')">Phoenix Metro Area</button>
+                <div id="Phoenix-dropdown" class="dropdown">
+                    <a href="https://www.firrp.org/">Florence Immigrant & Refugee Rights Project</a>
+                    <a href="https://www.azjusticeforall.org/">Justice For All Arizona</a>
+                    <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
+                </div>
+            </div>
+            <div class="metro-area-container">
+                <button class="metro-area-button" onclick="toggleDropdown('Miami')">Miami Metro Area</button>
+                <div id="Miami-dropdown" class="dropdown">
+                    <a href="https://catholiclegalservices.org/">Catholic Legal Services Miami</a>
+                    <a href="https://www.floridaimmigrant.org/">Florida Immigrant Coalition</a>
+                    <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
+                </div>
             </div>
         </div>
-        <div class="metro-area-container">
-            <button class="metro-area-button" onclick="toggleDropdown('Chicago')">Chicago Metro Area</button>
-            <div id="Chicago-dropdown" class="dropdown">
-                <a href="https://immigrantjustice.org/">National Immigrant Justice Center</a>
-                <a href="https://www.reshicago.org/">RefugeeOne Chicago</a>
-                <a href="https://www.icirr.org/">Illinois Coalition for Immigrant and Refugee Rights</a>
-            </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>© 2025 Fuego Report | All Rights Reserved</p>
         </div>
-        <div class="metro-area-container">
-            <button class="metro-area-button" onclick="toggleDropdown('NewYork')">New York Metro Area</button>
-            <div id="NewYork-dropdown" class="dropdown">
-                <a href="https://www.make-the-road.org/">Make the Road New York</a>
-                <a href="https://www.thenyic.org/">New York Immigration Coalition</a>
-                <a href="https://www.immigrantdefenseproject.org/">Immigrant Defense Project</a>
-            </div>
-        </div>
-        <div class="metro-area-container">
-            <button class="metro-area-button" onclick="toggleDropdown('Seattle')">Seattle Metro Area</button>
-            <div id="Seattle-dropdown" class="dropdown">
-                <a href="https://www.nwirp.org/">Northwest Immigrant Rights Project</a>
-                <a href="https://seattle.gov/iandraffairs">Seattle Office of Immigrant and Refugee Affairs</a>
-                <a href="https://refugeesnw.org/">Refugees Northwest</a>
-            </div>
-        </div>
-        <div class="metro-area-container">
-            <button class="metro-area-button" onclick="toggleDropdown('LosAngeles')">Los Angeles Metro Area</button>
-            <div id="LosAngeles-dropdown" class="dropdown">
-                <a href="https://www.chirla.org/">Coalition for Humane Immigrant Rights (CHIRLA)</a>
-                <a href="https://www.rescue.org/">International Rescue Committee</a>
-                <a href="https://refugeerights.org/">International Refugee Assistance Project</a>
-            </div>
-        </div>
-        <div class="metro-area-container">
-            <button class="metro-area-button" onclick="toggleDropdown('Houston')">Houston Metro Area</button>
-            <div id="Houston-dropdown" class="dropdown">
-                <a href="https://www.houstonimmigration.org/">Houston Immigration Legal Services Collaborative</a>
-                <a href="https://www.raicestexas.org/">RAICES Texas</a>
-                <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
-            </div>
-        </div>
-        <div class="metro-area-container">
-            <button class="metro-area-button" onclick="toggleDropdown('Atlanta')">Atlanta Metro Area</button>
-            <div id="Atlanta-dropdown" class="dropdown">
-                <a href="https://www.gainlegal.org/">Georgia Asylum and Immigration Network (GAIN)</a>
-                <a href="https://www.gcadv.org/">Georgia Coalition Against Domestic Violence</a>
-                <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
-            </div>
-        </div>
-        <div class="metro-area-container">
-            <button class="metro-area-button" onclick="toggleDropdown('Phoenix')">Phoenix Metro Area</button>
-            <div id="Phoenix-dropdown" class="dropdown">
-                <a href="https://www.firrp.org/">Florence Immigrant & Refugee Rights Project</a>
-                <a href="https://www.azjusticeforall.org/">Justice For All Arizona</a>
-                <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
-            </div>
-        </div>
-        <div class="metro-area-container">
-            <button class="metro-area-button" onclick="toggleDropdown('Miami')">Miami Metro Area</button>
-            <div id="Miami-dropdown" class="dropdown">
-                <a href="https://catholiclegalservices.org/">Catholic Legal Services Miami</a>
-                <a href="https://www.floridaimmigrant.org/">Florida Immigrant Coalition</a>
-                <a href="https://refugees.org/">U.S. Committee for Refugees and Immigrants</a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+    </footer>
+    </body>
+    </html>
