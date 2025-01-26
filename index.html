@@ -7,11 +7,15 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAXgoiUwDZWZJ9raujM5FoB5cPCGxITPU&callback=initMap" async defer></script>
     <script>
+        let map;
+
         // Translations for each language
         const translations = {
             en: {
                 formTitle: "Report ICE in Your Community",
                 locationLabel: "Location:",
+                latitudeLabel: "Latitude:",
+                longitudeLabel: "Longitude:",
                 detailsLabel: "Details:",
                 timeLabel: "Time:",
                 dateLabel: "Date:",
@@ -20,6 +24,8 @@
             es: {
                 formTitle: "Reporte ICE en su Comunidad",
                 locationLabel: "Ubicación:",
+                latitudeLabel: "Latitud:",
+                longitudeLabel: "Longitud:",
                 detailsLabel: "Detalles:",
                 timeLabel: "Hora:",
                 dateLabel: "Fecha:",
@@ -28,6 +34,8 @@
             pt: {
                 formTitle: "Reporta ICE em sua comunidade",
                 locationLabel: "Localização:",
+                latitudeLabel: "Latitude:",
+                longitudeLabel: "Longitude:",
                 detailsLabel: "Detalhes:",
                 timeLabel: "Hora:",
                 dateLabel: "Data:",
@@ -36,6 +44,8 @@
             fr: {
                 formTitle: "Signaler l'ICE dans votre communauté",
                 locationLabel: "Emplacement:",
+                latitudeLabel: "Latitude:",
+                longitudeLabel: "Longitude:",
                 detailsLabel: "Détails:",
                 timeLabel: "Heure:",
                 dateLabel: "Date:",
@@ -43,54 +53,52 @@
             },
         };
 
-        // Function to switch language
+        // Initialize the map
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 38.9066, lng: -77.0736 },
+                zoom: 15,
+            });
+        }
+
+        // Place a marker on the map
+        function placeMarker(location) {
+            new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+            map.setCenter(location);
+        }
+
+        // Switch language based on user selection
         function switchLanguage(lang) {
             document.getElementById("form-title").textContent = translations[lang].formTitle;
             document.getElementById("location-label").textContent = translations[lang].locationLabel;
+            document.getElementById("latitude-label").textContent = translations[lang].latitudeLabel;
+            document.getElementById("longitude-label").textContent = translations[lang].longitudeLabel;
             document.getElementById("details-label").textContent = translations[lang].detailsLabel;
             document.getElementById("time-label").textContent = translations[lang].timeLabel;
             document.getElementById("date-label").textContent = translations[lang].dateLabel;
             document.getElementById("submit-button").textContent = translations[lang].submitButton;
         }
 
-        // Initialize Google Map
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 38.9066, lng: -77.0736 },
-                zoom: 15,
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle form submission
+            document.getElementById('report-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const latitude = parseFloat(document.getElementById('latitude').value);
+                const longitude = parseFloat(document.getElementById('longitude').value);
+
+                if (!isNaN(latitude) && !isNaN(longitude)) {
+                    const location = { lat: latitude, lng: longitude };
+                    placeMarker(location);
+                } else {
+                    alert('Please enter valid coordinates.');
+                }
             });
 
-            var marker = new google.maps.Marker({
-                position: { lat: 38.9066, lng: -77.0736 },
-                map: map,
-                draggable: true,
-            });
-
-            google.maps.event.addListener(map, 'click', function(event) {
-                placeMarker(event.latLng);
-            });
-
-            function placeMarker(location) {
-                marker.setPosition(location);
-                map.setCenter(location);
-
-                var geocoder = new google.maps.Geocoder();
-                geocoder.geocode({ 'location': location }, function(results, status) {
-                    if (status === 'OK') {
-                        if (results[0]) {
-                            document.getElementById('location').value = results[0].formatted_address;
-                        } else {
-                            window.alert('No results found');
-                        }
-                    } else {
-                        window.alert('Geocoder failed due to: ' + status);
-                    }
-                });
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            // Add event listeners to the language radio buttons
+            // Handle language switching
             document.querySelectorAll('input[name="language"]').forEach((radio) => {
                 radio.addEventListener("change", (e) => {
                     switchLanguage(e.target.value);
@@ -100,19 +108,20 @@
     </script>
 </head>
 <body>
-    <!-- Language Switcher -->
-    <div id="language-switcher">
-        <input type="radio" name="language" id="lang-en" value="en" checked>
-        <label for="lang-en">English</label>
-
-        <input type="radio" name="language" id="lang-es" value="es">
-        <label for="lang-es">Español</label>
-
-        <input type="radio" name="language" id="lang-pt" value="pt">
-        <label for="lang-pt">Portuguese</label>
-
-        <input type="radio" name="language" id="lang-fr" value="fr">
-        <label for="lang-fr">French</label>
+    <!-- Language Selector -->
+    <div id="language-selector">
+        <div id="tab">
+            <img src="lang.png" alt="Language Icon" />
+        </div>
+        <div id="panel">
+            <h3>Select Language</h3>
+            <ul>
+                <li><input type="radio" name="language" id="lang-en" value="en" checked> <label for="lang-en">English</label></li>
+                <li><input type="radio" name="language" id="lang-es" value="es"> <label for="lang-es">Español</label></li>
+                <li><input type="radio" name="language" id="lang-pt" value="pt"> <label for="lang-pt">Portuguese</label></li>
+                <li><input type="radio" name="language" id="lang-fr" value="fr"> <label for="lang-fr">French</label></li>
+            </ul>
+        </div>
     </div>
 
     <!-- Header -->
@@ -127,10 +136,15 @@
                 <div id="map"></div>
                 <div id="report">
                     <h2 id="form-title">Report ICE in Your Community</h2>
-                    <p>Help us track ICE activity in your community. Your report is confidential.</p>
                     <form id="report-form">
                         <label id="location-label" for="location">Location:</label>
                         <input type="text" id="location" name="location" placeholder="Enter location..." required>
+
+                        <label id="latitude-label" for="latitude">Latitude:</label>
+                        <input type="number" step="any" id="latitude" name="latitude" placeholder="Enter latitude...">
+
+                        <label id="longitude-label" for="longitude">Longitude:</label>
+                        <input type="number" step="any" id="longitude" name="longitude" placeholder="Enter longitude...">
 
                         <label id="date-label" for="date">Date:</label>
                         <input type="date" id="date" name="date" required>
@@ -149,9 +163,7 @@
     </main>
 
     <footer>
-        <div class="container">
-            <p>© 2025 Fuego Report | All Rights Reserved</p>
-        </div>
+        <p>© 2025 Fuego Report | All Rights Reserved</p>
     </footer>
 </body>
 </html>
